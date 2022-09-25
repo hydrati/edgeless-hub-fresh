@@ -29,9 +29,9 @@ const kInstance = Symbol("kInstance");
 export class InvokeBridgeMain {
   static [kInstance]: InvokeBridgeMain = new InvokeBridgeMain();
 
-  protected _methods: MethodStore = new Map();
-
   private constructor() {}
+
+  protected _methods: MethodStore = new Map();
 
   setup(ipc: IpcMain) {
     ipc.on("bridge:invoke_call", this._handleIpc.bind(this));
